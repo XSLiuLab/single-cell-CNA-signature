@@ -3,4 +3,4 @@ This repository provides the analysis reports, code and data for readers who are
 
 ## Workflow
 
-![Image text](E:\Git-Hub Project\single-cell-CNA-signature\result\workflow.png)
+![Image text](result\workflow.png)
