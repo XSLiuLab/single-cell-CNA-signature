@@ -1,0 +1,69 @@
+
+#!/bin/sh
+#PBS -N 227520..227546
+#PBS -k oe
+#PBS -l walltime=500:00:00,nodes=1:ppn=20
+#PBS -q slst_pub
+
+
+source activate /public/home/liuxs/anaconda3/envs/wes
+
+name="HRR"
+fq1="_f1.fq.gz"
+fq2="_r2.fq.gz"
+clean="_clean"
+sam=".sam"
+bam=".bam"
+
+for	i in {227520..227546}
+do
+str1=$name$i
+
+cd /public/slst/home/wuchx/project/scCNSignature/use_data/$str1
+
+file1=$str1$fq1
+file2=$str1$fq2
+
+clean_file1=$str1$clean$fq1
+clean_file2=$str1$clean$fq2
+
+sam_file=$str1$sam
+bam_file=$str1$bam
+
+
+fastp -i $file1 -o $clean_file1 -I $file2 -O $clean_file2
+
+bwa mem -t 20 -M -R "@RG\tID:$str1\t\
+LM:$str1\t\
+SM:$str1\t\
+PL:illumina\tPU:$str1"\
+ /public/slst/home/wuchx/project/scCNSignature/ref_genome/gdc_hg38/GRCh38.d1.vd1.fa  $clean_file1 $clean_file2 > $sam_file
+
+
+samtools view -bS $sam_file > $bam_file
+rm -rf $sam_file
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
