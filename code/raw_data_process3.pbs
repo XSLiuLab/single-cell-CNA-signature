@@ -1,0 +1,63 @@
+
+#!/bin/sh
+#PBS -N 227520..227546
+#PBS -k oe
+#PBS -l walltime=500:00:00,nodes=1:ppn=20
+#PBS -q slst_pub
+
+
+source activate /public/home/liuxs/anaconda3/envs/wes
+
+name="HRR"
+bam=".bam"
+bam_sort=".sort.bam"
+rdup=".rdup.bam"
+
+for	i in {227520..227546}
+do
+str1=$name$i
+
+cd /public/slst/home/wuchx/project/scCNSignature/use_data/$str1
+
+
+bam_file=$str1$bam
+bam_sort_file=$str1$bam_sort
+rdup_file=$str1$rdup
+
+
+
+java -jar /public/home/liuxs/anaconda3/envs/wes/share/picard-2.20.6-0/picard.jar MarkDuplicates\
+ I=$bam_sort_file\
+ O=$rdup_file\
+ VALIDATION_STRINGENCY=LENIENT \
+ MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
+ M=$str1.sort.addhead.rmdup.metric
+
+samtools index $rdup_file\
+ $rdup_file.bai
+ 
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
