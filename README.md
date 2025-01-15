@@ -7,4 +7,4 @@ This repository provides the analysis reports, code and data for readers who are
 
 ## Contributors
 
-Please contact Chenxu Wu: [wuchx@shanghaitech.edu.cn](mailto:wuchx@shanghaitech.edu.cn) for any questions or suggestions. Thank you for your use and feedback.
+Please contact Chenxu Wu: [wuchx@shanghaitech.edu.cn](mailto:wuchx@shanghaitech.edu.cn) for any questions or suggestions. Thank you for your support and feedback.
