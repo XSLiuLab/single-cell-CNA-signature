@@ -19,11 +19,6 @@ mat <- dplyr::mutate(mat, context = factor(.data$context,levels = unique(mat$con
                      class = factor(class, levels = colnames(Sig)))
 
 
-
-
-
-
-
 len_base <- length(unique(mat$base))
 palette <- c(2:4, 7:9, 12:14)
 

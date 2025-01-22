@@ -1,6 +1,5 @@
 
 remove(list = ls())
-setwd("~/project/scCNSignature/")
 
 library(sigminer)
 library(data.table)

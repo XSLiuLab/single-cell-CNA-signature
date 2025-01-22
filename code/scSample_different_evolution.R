@@ -7,11 +7,11 @@ library(data.table)
 library(dplyr)
 
 
-sc_sigs <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/result/sc_ploidy_sigs_signature.rds")
+sc_sigs <- readRDS("./data/Signature/signature/sc_ploidy_sigs_signature.rds")
 
 
 
-sc_tally <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/sc_tumor_tally_ploidy.rds")
+sc_tally <- readRDS("data/Signature/NMF Matrix/scWGS_tally_ploidy.rds")
 sc_feture <- sc_tally$nmf_matrix
 sc_feture1 <- t(sc_feture)
 sc_feture2 <- sc_feture1
@@ -43,19 +43,19 @@ result_matrix1 <- result_matrix1
 result_matrix2 <- result_matrix1
 
 
-clin <- fread("./ACE_NEW/result/scHCC_infor.txt")
+clin <- fread("./ACE/result/scHCC_infor.txt")
 clin1 <- clin %>% filter(sample_ID %in% rownames(result_matrix2))
 
 
 sc_sample <- as.data.frame(result_matrix2)
 sc_sample$sample_ID <- rownames(sc_sample)
 sc_sig_sample <- left_join(clin1,sc_sample)
-fwrite(sc_sig_sample,"./ACE_NEW/scData/sc_sig_sample.txt")
-sc_sig_sample <- fread("./ACE_NEW/scData/sc_sig_sample.txt",data.table = F)
+fwrite(sc_sig_sample,"./ACE/scData/sc_sig_sample.txt")
+sc_sig_sample <- fread("./ACE/scData/sc_sig_sample.txt",data.table = F)
 
 P06 <- sc_sig_sample %>% filter(patient1 == "P06")
 
-cna <- fread("~/project/scCNSignature/ACE_NEW/result/sc_ACE_smooth_segment.txt")
+cna <- fread("./ACE/result/sc_ACE_smooth_segment.txt")
 
 use_cn <- cna %>% filter(sample %in% c("HRR226897","HRR226897"))
 cn <- read_copynumber(use_cn, seg_cols = c("chromosome", "start", "end", "segVal"), genome_build = "hg38", complement = F, verbose = TRUE) 
@@ -76,8 +76,8 @@ show_cn_profile(cn, nrow = 2, ncol = 1,show_title = T,ylim = c(0,max(use_cn$segV
 
 ### envolution
 
-all_sc_sample <- fread("./ACE_NEW/scData/sc_sig_sample.txt",data.table = F)
-all_sc_sample <- fread("./ACE_NEW/scData/sc_sig_sample_new.txt",data.table = F)
+all_sc_sample <- fread("./ACE/scData/sc_sig_sample.txt",data.table = F)
+all_sc_sample <- fread("./ACE/scData/sc_sig_sample_new.txt",data.table = F)
 sc_sample_infor <- all_sc_sample %>% dplyr::select("sample_ID","patient1")
 
 

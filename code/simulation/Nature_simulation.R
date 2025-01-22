@@ -1,5 +1,5 @@
 
-setwd("~/project/scCNSignature/ACE_NEW/nature_sim/")
+
 remove(list = ls())
 ## This example script creates 240 copy number profiles from 5 mutational processes (HRD/LST, ecDNA, chromosome missegregation, early WGD and late WGD)
 

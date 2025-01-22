@@ -1,11 +1,10 @@
 
 
 remove(list = ls())
-setwd("~/project/scCNSignature/")
 
 
-cna_data <- fread("./ACE_NEW/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
-cna_infor <- fread("./ACE_NEW/result/scHCC_infor.txt",data.table = F)
+cna_data <- fread("./ACE/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
+cna_infor <- fread("./ACE/result/scHCC_infor.txt",data.table = F)
 
 
 patient_name <- names(table(cna_infor$patient1))
@@ -93,11 +92,8 @@ ggplot(draw_data, aes(x = sample, y = value, group = Sig, fill = Sig)) +
 
 
 
-
-remove(list = ls())
-setwd("~/project/scCNSignature/")
-cna_data <- fread("./ACE_NEW/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
-cna_infor <- fread("./ACE_NEW/result/scHCC_infor.txt",data.table = F)
+cna_data <- fread("./ACE/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
+cna_infor <- fread("./ACE/result/scHCC_infor.txt",data.table = F)
 
 patient_name <- names(table(cna_infor$patient1))
 shared_break <- list()
