@@ -8,9 +8,9 @@ library(dplyr)
 library(stringr)
 library(ACE)
 
-filename <- list.files("~/project/scCNSignature/ACE_NEW/scData/QDNAseq_result/")
-path <- "~/project/scCNSignature/ACE_NEW/scData/QDNAseq_result/"
-ACE_path <- "~/project/scCNSignature/ACE_NEW/scData/ACE_result/"
+filename <- list.files("data/ACE/scData/QDNAseq_result/")
+path <- "data/ACE/scData/QDNAseq_result/"
+ACE_path <- "data/ACE/scData/ACE_result/"
 
 
 sc_ACE_para <- data.frame(matrix(data = NA,nrow = 1275,ncol = 3))
@@ -54,9 +54,9 @@ for(i in filename){
 
 fwrite(sc_ACE_para,"./result/sc_ACE_para.txt")
 
-filename <- list.files("~/project/scCNSignature/ACE_NEW/scData/ACE_result/")
-ACEpath <- "~/project/scCNSignature/ACE_NEW/scData/ACE_result/"
-P_path <- "~/project/scCNSignature/ACE_NEW/scData/Processed_result/"
+filename <- list.files("data/ACE/scData/ACE_result/")
+ACEpath <- "data/ACE/scData/ACE_result/"
+P_path <- "data/ACE/scData/Processed_result/"
 
 
 for (i in filename) {
@@ -109,9 +109,9 @@ for (i in filename) {
 
 
 remove(list = ls())
-filename <- list.files("~/project/scCNSignature/ACE_NEW/scData/Processed_result/")
-path <- "~/project/scCNSignature/ACE_NEW/scData/Processed_result/"
-data <- fread("~/project/scCNSignature/ACE_NEW/scData/Processed_result/HRR226272.txt")
+filename <- list.files("data/ACE/scData/Processed_result/")
+path <- "data/ACE/scData/Processed_result/"
+data <- fread("data/ACE/scData/Processed_result/HRR226272.txt")
 all_data <- data[1,]
 all_data[1,] <- NA
 
@@ -128,5 +128,5 @@ for (i in filename) {
 scHCC_absCNA <- na.omit(all_data)
 a <- as.data.frame(table(scHCC_absCNA$sample))
 
-fwrite(scHCC_absCNA,file = "~/project/scCNSignature/ACE_NEW/result/sc_ACE_smooth_segment.txt")
+fwrite(scHCC_absCNA,file = "data/ACE/result/sc_ACE_smooth_segment.txt")
 
