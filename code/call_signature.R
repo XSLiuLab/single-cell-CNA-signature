@@ -1,11 +1,10 @@
 
 library(sigminer)
 
-tally_X <- readRDS("/public/slst/home/wuchx/wuchx/project/scCNSignature/ploidy_call_signature/new_ploidy_pcawgSignature/new_pcawg_tumor_tally_ploidy.rds")
-
+tally_X <- readRDS("data/NMF Matrix/scWES_tally_ploidy")
 
 sigprofiler_extract(tally_X$nmf_matrix,
-  output = "/public/slst/home/wuchx/wuchx/project/scCNSignature/ploidy_call_signature/new_ploidy_pcawgSignature/ploidy_pcawgSExtract",
+  output = "./",
   range = 2:15,
   nrun = 100,
   init_method = "random",
