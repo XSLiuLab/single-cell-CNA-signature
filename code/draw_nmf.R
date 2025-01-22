@@ -8,27 +8,7 @@ library(data.table)
 library(ggplot2)
 library(sigminer)
 
-sc_tally <- readRDS("./result/sc_tally.rds")
-sc_tally <- readRDS("./result/tumor_sc_tally.rds")
-sc_tally <- readRDS("./result/new_ACE/new_tumor_sc_tally.rds")
-
-
-sc_tally <- readRDS("./result/pcawg_deep_tally.rds")
-sc_tally <- readRDS("./result/pcawg_tally.rds")
-sc_tally <- readRDS("./simulation_data/segment_simulation/simulation_data2/simulation_pcawg_tally2.rds")
-sc_tally <- readRDS("./simulation_data/segment_simulation/simulation_data4/simulation_pcawg_tally4.rds")
-sc_tally <- readRDS("./simulation_data/segment_simulation/distribution_data2/DS2_data1.rds")
-
-
-sc_tally <- readRDS("./TCGA/tcga_2/LIHC_tcga_tally2.rds")
-sc_tally <- readRDS("./PCAWG/pcawg_2/pcawg_deep_tally.rds")
-
-
-
-
-
-sc_tally <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/sc_tumor_tally_ploidy.rds")
-
+sc_tally <- readRDS("/result/sc_tally.rds")
 
 
 
@@ -139,5 +119,5 @@ p <- ggplot(mat) +
 
 p
 
-ggplot2::ggsave("./ACE_NEW/figure/scNMF_profile.pdf",plot = p, width = 12, height = 6)
+ggplot2::ggsave("/figure/scNMF_profile.pdf",plot = p, width = 12, height = 6)
 

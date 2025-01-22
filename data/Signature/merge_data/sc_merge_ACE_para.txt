@@ -1,0 +1,11 @@
+sample,ploidy,cellularity
+P01_rdup_proportaion,1.99,1
+P02_rdup_proportaion,3.94,1
+P03_rdup_proportaion,2.11,1
+P04_rdup_proportaion,2.98,1
+P05_rdup_proportaion,2.11,1
+P06_rdup_proportaion,3.97,1
+P07_rdup_proportaion,1.03,1
+P08_rdup_proportaion,2.05,1
+P09_rdup_proportaion,2.95,1
+P10_rdup_proportaion,3.97,1

@@ -9,9 +9,9 @@ library(data.table)
 library(dplyr)
 
 
-sc_sigs <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/result/sc_ploidy_sigs_signature.rds")
+sc_sigs <- readRDS("data/Signature/NMF Matrix/sc_ploidy_sigs_signature.rds")
 
-sc_tally <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/sc_tumor_tally_ploidy.rds")
+sc_tally <- readRDS("data/Signature/NMF Matrix/sc_tumor_tally_ploidy.rds")
 sc_feture <- sc_tally$nmf_matrix
 sc_feture1 <- t(sc_feture)
 sc_feture2 <- sc_feture1
@@ -396,13 +396,10 @@ Heatmap(test_result2, name = "Proportion",col = col_fun, rect_gp = gpar(type = "
 
 
 
-
-
-setwd("~/project/scCNSignature/")
 remove(list = ls())
 library(sigminer)
 
-cna <- fread("./ACE_NEW/merge_data/sc_merge_ACE_smooth_segment.txt")
+cna <- fread("data/Signature/merge_data/sc_merge_ACE_smooth_segment.txt")
 
 cna$sample <- substr(cna$sample,1,3)
 
@@ -443,14 +440,6 @@ ggplot2::ggsave(file.path("./ACE_NEW/merge_data/sample","samples.pdf"),
                 plot = p, width = 12, height = 42)
 
 
-
-
-
-
-
-
-setwd("~/project/scCNSignature/")
-remove(list = ls())
 
 
 library(data.table)

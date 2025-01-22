@@ -2,15 +2,15 @@
 library(dplyr)
 library(data.table)
 
-HCC_infor <- fread("~/project/scCNSignature/CNS_result/scHCC_infor.csv",data.table = F)
+HCC_infor <- fread("data/ACE/result/scHCC_infor.csv",data.table = F)
 normal <- HCC_infor %>% filter(tissue_type == "N") 
-sc_segment <- fread("~/project/scCNSignature/ACE_NEW/result/sc_ACE_smooth_segment.txt",data.table = F)
+sc_segment <- fread("data/ACE/result/sc_ACE_smooth_segment.txt",data.table = F)
 sc_tumor_segment <- sc_segment %>% filter(!(sample %in% normal$sample_ID))
 fwrite(sc_tumor_segment,"./result/sc_tumor_ACE_smooth_segment.txt")
 
 
 
-sc_segment <- fread("~/project/scCNSignature/ACE_NEW/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
+sc_segment <- fread("data/ACE/result/sc_tumor_ACE_smooth_segment.txt",data.table = F)
 min(sc_segment$segVal)
 
 divide_result <- divide_feature(sc_segment)
@@ -21,7 +21,7 @@ divide_figure
 
 a <- divide_result$nmf_matrix
 
-saveRDS(divide_result,"~/project/scCNSignature/ACE_NEW/result/sc_tumor_tally_ploidy.rds")
+saveRDS(divide_result,"data/ACE/result/sc_tumor_tally_ploidy.rds")
 
 library(ggplot2)
 
