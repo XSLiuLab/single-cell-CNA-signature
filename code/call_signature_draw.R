@@ -8,8 +8,8 @@ library(data.table)
 library(dplyr)
 
 
-SP_PCAWG <- sigprofiler_import("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/ploidy_scSExtract/", order_by_expo = TRUE, type = "all")
-saveRDS(SP_PCAWG, file = "./ACE_NEW/call_signature/ploidy_scSignature_1Mb/result/sc_ploidy_solutions_sp.rds")
+SP_PCAWG <- sigprofiler_import("./ACE_NEW/call_signature/ploidy_scSignature/ploidy_scSExtract/", order_by_expo = TRUE, type = "all")
+saveRDS(SP_PCAWG, file = "./ACE_NEW/call_signature/ploidy_scSignature/result/sc_ploidy_solutions_sp.rds")
 
 show_sig_number_survey(
   SP_PCAWG$all_stats %>%
@@ -36,8 +36,8 @@ colnames(pcawg_sigs$Signature) <- colnames(pcawg_sigs$Signature.norm) <- rowname
 sig_names(pcawg_sigs)
 
 
-saveRDS(pcawg_sigs, file = "./ACE_NEW/call_signature/new_ploidy_scSignature_1Mb/result/new_sc_ploidy_sigs_signature.rds")
-pcawg_sigs <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature_1Mb/result/sc_ploidy_sigs_signature.rds")
+saveRDS(pcawg_sigs, file = "./ACE_NEW/call_signature/new_ploidy_scSignature/result/new_sc_ploidy_sigs_signature.rds")
+pcawg_sigs <- readRDS("./ACE_NEW/call_signature/ploidy_scSignature/result/sc_ploidy_sigs_signature.rds")
 
 
 
