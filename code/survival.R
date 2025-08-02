@@ -68,7 +68,7 @@ data3 <- clin_pcawgLow1 %>% select(sample,donor_survival_time,donor_vital_status
 show_forest(data3, covariates = paste0("tcgaSignature", 1:8),
             merge_models = TRUE, add_caption = FALSE, point_size = 2)
 
-
+ 
 
 
 
